@@ -1,17 +1,17 @@
-class Cloud extends MovableObjekt {
+class OtherCloud extends MovableObjekt {
     y = 20;
     width = 500;
     height = 250;
 
     constructor() {
-        super().loadImage('img/5_background/layers/4_clouds/1.png');
+        super().loadImage('img/5_background/layers/4_clouds/2.png');
         this.randomSpawnPoint();
         this.animate();
     }
 
 
     randomSpawnPoint() {
-        this.x = Math.random() * 500;
+        this.x = 1200 + Math.random() * 500;
     }
 
     animate() {

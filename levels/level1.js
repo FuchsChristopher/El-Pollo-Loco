@@ -3,10 +3,16 @@ const level1 = new Level(
         new Chicken(),
         new Chicken(),
         new Chicken(),
-        new Endboss()
+        new Endboss(),
+        new SmallChicken(),
+        new SmallChicken(),
+        new SmallChicken()
     ],
     [
-        new Cloud()
+        new Cloud(),
+        new Cloud(),
+        new OtherCloud(),
+        new OtherCloud()
     ],
     [
         new BackgroundObject('img/5_background/layers/air.png', -719),

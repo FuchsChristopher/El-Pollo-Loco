@@ -15,14 +15,12 @@ class SmallChicken extends MovableObjekt {
         this.randomSpeed();
         this.animate();
         this.applyGravity();
+        this.chickenJump();
     }
 
 
     randomSpawnPoint() {
-        this.x = 60 + Math.random() * 500;
-        setInterval(() => {
-            this.jump();
-        }, 2000);
+        this.x = 1600 + Math.random() * 500;
     }
 
 
@@ -47,5 +45,13 @@ class SmallChicken extends MovableObjekt {
             this.randomSpawnPoint();
             this.randomSpeed();
         }
+    }
+
+    chickenJump() {
+        setInterval(() => {
+            if (!this.isAboveGround()) {
+                this.jump();
+            }
+        }, 3000);
     }
 }

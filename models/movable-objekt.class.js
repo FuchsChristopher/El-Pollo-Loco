@@ -20,6 +20,8 @@ class MovableObjekt extends DrawableObject {
     isAboveGround() {
         if (this instanceof ThrowableObject) {
             return true;
+        } if (this instanceof SmallChicken) {
+            return this.y < 357;
         } else {
             return this.y < 150;
         }

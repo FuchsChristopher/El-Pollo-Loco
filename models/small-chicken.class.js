@@ -54,4 +54,9 @@ class SmallChicken extends MovableObjekt {
             }
         }, 3000);
     }
+
+
+    jump() {
+        this.speedY = 20;
+    }
 }

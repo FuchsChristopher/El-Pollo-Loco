@@ -5,6 +5,8 @@ class World {
     ctx;
     keyboard;
     camera_x = 0;
+    imagesStatusBarBos = new StatusBarBoss();
+    imagesStatusBarBosss = new StatusBarImageBoss();
     statusBarHealth = new StatusBarHealth();
     statusBarCoin = new StatusBarCoin();
     statusBarBottle = new StatusBarBottle();
@@ -25,12 +27,16 @@ class World {
     }
 
 
+    endGame() {
+        for (let i = 1; i < 9999; i++) window.clearInterval(i);
+    }
+
+
     run() {
         setInterval(() => {
-            
             this.checkCollisons();
             this.checkThrowableObjects();
-        }, 200);
+        }, 80);
     }
 
 
@@ -38,15 +44,43 @@ class World {
         if (this.keyboard.D) {
             let bottle = new ThrowableObject(this.character.x + 100, this.character.y + 100);
             this.throwableObject.push(bottle);
-        } 
+        }
     }
 
 
     checkCollisons() {
+        this.collisionCharacterToEnemie();
+        this.collisionCharacterToBottle();
+        this.collisionCharacterToCoin();
+    }
+
+
+    collisionCharacterToEnemie() {
         this.level.enemies.forEach((enemy) => {
             if (this.character.isColliding(enemy)) {
                 this.character.hit();
                 this.statusBarHealth.setPercentage(this.character.energy);
+            }
+        });
+    }
+
+
+    collisionCharacterToBottle() {
+        this.level.bottles.forEach((bottle, i) => {
+            if (this.character.isColliding(bottle) && this.character.bottle !== 100) {
+                this.character.collectBottle();
+                this.level.bottles.splice(i, 1);
+                this.statusBarBottle.setPercentage(this.character.bottle);
+            }
+        });
+    }
+
+    collisionCharacterToCoin() {
+        this.level.coins.forEach((coin, i) => {
+            if (this.character.isColliding(coin) && this.character.coin !== 100) {
+                this.character.collectCoin();
+                this.level.coins.splice(i, 1);
+                this.statusBarCoin.setPercentage(this.character.coin);
             }
         });
     }
@@ -63,9 +97,13 @@ class World {
         this.addToMap(this.statusBarHealth);
         this.addToMap(this.statusBarCoin);
         this.addToMap(this.statusBarBottle);
+        this.addToMap(this.imagesStatusBarBos);
+        this.addToMap(this.imagesStatusBarBosss);
         this.ctx.translate(this.camera_x, 0);
 
         this.addToMap(this.character);
+        this.addObjectsToMap(this.level.bottles);
+        this.addObjectsToMap(this.level.coins);
         this.addObjectsToMap(this.level.clouds);
         this.addObjectsToMap(this.level.enemies);
         this.addObjectsToMap(this.throwableObject);

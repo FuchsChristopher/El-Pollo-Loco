@@ -67,6 +67,7 @@ class Character extends MovableObjekt {
     ];
 
     walking_sound = new Audio('audio/Walking.mp3');
+    jumpSound = new Audio('audio/Jump_Sound.mp3');
 
     constructor() {
         super().loadImage('img/2_character_pepe/2_walk/W-21.png');
@@ -97,6 +98,7 @@ class Character extends MovableObjekt {
             }
             if (this.world.keyboard.SPACE && !this.isAboveGround()) {
                 this.jump();
+                this.jumpSound.play();
             }
             this.world.camera_x = -this.x + 100;
         }, 1000 / 60);

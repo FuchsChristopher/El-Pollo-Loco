@@ -12,6 +12,9 @@ class World {
     statusBarBottle = new StatusBarBottle();
     throwableObject = [];
 
+    coinCollectSound = new Audio('audio/Collect_Coin.mp3');
+    bottleCollectSound = new Audio('audio/Collect_Bottle.mp3');
+
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
         this.canvas = canvas;
@@ -71,6 +74,7 @@ class World {
                 this.character.collectBottle();
                 this.level.bottles.splice(i, 1);
                 this.statusBarBottle.setPercentage(this.character.bottle);
+                this.bottleCollectSound.play();
             }
         });
     }
@@ -81,6 +85,7 @@ class World {
                 this.character.collectCoin();
                 this.level.coins.splice(i, 1);
                 this.statusBarCoin.setPercentage(this.character.coin);
+                this.coinCollectSound.play();
             }
         });
     }

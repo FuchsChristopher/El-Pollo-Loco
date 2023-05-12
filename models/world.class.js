@@ -1,5 +1,6 @@
 class World {
     character = new Character();
+    endBoss = new Endboss();
     level = level1;
     canvas;
     ctx;
@@ -39,6 +40,7 @@ class World {
         setInterval(() => {
             this.checkCollisons();
             this.checkThrowableObjects();
+            this.collisionCharacterToEndBoss(); 
         }, 80);
     }
 
@@ -55,6 +57,7 @@ class World {
         this.collisionCharacterToEnemie();
         this.collisionCharacterToBottle();
         this.collisionCharacterToCoin();
+        
     }
 
 
@@ -65,6 +68,14 @@ class World {
                 this.statusBarHealth.setPercentage(this.character.energy);
             }
         });
+    }
+
+
+    collisionCharacterToEndBoss() {
+            if (this.character.isColliding(this.endBoss)) {
+                this.character.hitBoss();
+                this.statusBarHealth.setPercentage(this.character.energy);
+            }
     }
 
 
@@ -107,6 +118,7 @@ class World {
         this.ctx.translate(this.camera_x, 0);
 
         this.addToMap(this.character);
+        this.addToMap(this.endBoss);
         this.addObjectsToMap(this.level.bottles);
         this.addObjectsToMap(this.level.coins);
         this.addObjectsToMap(this.level.clouds);
@@ -114,6 +126,7 @@ class World {
         this.addObjectsToMap(this.throwableObject);
 
         this.ctx.translate(-this.camera_x, 0);
+
 
         let self = this;
         requestAnimationFrame(function () {

@@ -1,10 +1,9 @@
 class Endboss extends MovableObjekt {
-
+    img;
     world;
     height = 400;
     width = 250;
-    y = 60;
-    speed = 50;
+    y = 60; 
     triggertBossEvent = false;
 
     image_Alert = [
@@ -26,11 +25,17 @@ class Endboss extends MovableObjekt {
     ];
 
     constructor() {
-        super().loadImage(this.image_Alert[0]);
+        super().loadImage('img/4_enemie_boss_chicken/2_alert/G5.png');
         this.loadImages(this.image_Alert);
         this.loadImages(this.image_Walking);
         this.x = 2500;
         this.animate();
+        this.randomSpeed();
+    }
+
+
+    randomSpeed() {
+        this.speed = 0.15;
     }
 
 
@@ -38,20 +43,21 @@ class Endboss extends MovableObjekt {
         setInterval(() => {
             if (world.character.x >= 2000 && !this.triggertBossEvent) {
                 this.playAnimation(this.image_Alert);
-                
                 setTimeout(() => {
                     this.triggertBossEvent = true;
                 }, 2000)
-            } else if (world.character.x >= 2100 && this.triggertBossEvent) {
+            } else if (this.triggertBossEvent) {
                 this.playAnimation(this.image_Walking);
                 this.moveLeft();
-
             }
         }, 200);
     }
 
 
     moveLeft() {
-        this.x -= this.speed;
+        setInterval(() => {
+            this.x -= this.speed;
+        }, 1000 / 60);
+        
     }
 }

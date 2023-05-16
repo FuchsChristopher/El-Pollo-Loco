@@ -4,6 +4,7 @@ class Endboss extends MovableObjekt {
     height = 400;
     width = 250;
     y = 60; 
+    speed = 0.15;
     triggertBossEvent = false;
 
     image_Alert = [
@@ -30,12 +31,6 @@ class Endboss extends MovableObjekt {
         this.loadImages(this.image_Walking);
         this.x = 2500;
         this.animate();
-        this.randomSpeed();
-    }
-
-
-    randomSpeed() {
-        this.speed = 0.15;
     }
 
 
@@ -57,7 +52,8 @@ class Endboss extends MovableObjekt {
     moveLeft() {
         setInterval(() => {
             this.x -= this.speed;
-        }, 1000 / 60);
+        }, 1000 / 60)
+            
         
     }
 }

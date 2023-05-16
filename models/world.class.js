@@ -40,7 +40,7 @@ class World {
         setInterval(() => {
             this.checkCollisons();
             this.checkThrowableObjects();
-            this.collisionCharacterToEndBoss(); 
+            this.collisionCharacterToEndBoss();
         }, 80);
     }
 
@@ -57,7 +57,8 @@ class World {
         this.collisionCharacterToEnemie();
         this.collisionCharacterToBottle();
         this.collisionCharacterToCoin();
-        
+        this.collisionCharacterToEnemieTop();
+
     }
 
 
@@ -71,11 +72,23 @@ class World {
     }
 
 
-    collisionCharacterToEndBoss() {
-            if (this.character.isColliding(this.endBoss)) {
-                this.character.hitBoss();
-                this.statusBarHealth.setPercentage(this.character.energy);
+    collisionCharacterToEnemieTop() {
+        this.level.enemies.forEach((enemy, i) => {
+            if (this.character.isCollidingTop(enemy) && this.character.y < 140) {
+                this.character.jump();
+                enemy.energy = 0;
+                this.level.enemies.splice(i, 1);
+                
             }
+        });
+    }
+
+
+    collisionCharacterToEndBoss() {
+        if (this.character.isColliding(this.endBoss)) {
+            this.character.hitBoss();
+            this.statusBarHealth.setPercentage(this.character.energy);
+        }
     }
 
 

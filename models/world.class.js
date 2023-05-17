@@ -154,6 +154,12 @@ class World {
     }
 
     addToMap(mo) {
+        this.ctx.save();
+        if (mo instanceof ThrowableObject) {
+            this.ctx.translate(mo.x + mo.width / 2, mo.y + mo.height / 2);
+            this.ctx.rotate(mo.angle * Math.PI / 180);
+            this.ctx.translate(-(mo.x + mo.width / 2), -(mo.y + mo.height / 2));
+        }
         if (mo.otherDirection) {
             this.flipImage(mo);
         }
@@ -163,6 +169,7 @@ class World {
         if (mo.otherDirection) {
             this.flipImageBack(mo);
         }
+        this.ctx.restore();
     }
 
 

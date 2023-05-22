@@ -1,7 +1,7 @@
 class SmallChicken extends MovableObjekt {
     y = 357;
     height = 65;
-    width = 90;
+    width = 70;
     energy = 1;
 
     image_Walking = [
@@ -45,11 +45,10 @@ class SmallChicken extends MovableObjekt {
                 this.playAnimation(this.image_Walking);
             } else {
                 this.playAnimation(this.image_Dead);
-                this.y -= 4;
-                return;
             }
+        }, 100)
 
-        }, 200);
+           
     }
 
 

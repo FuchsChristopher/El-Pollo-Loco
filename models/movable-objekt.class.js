@@ -4,6 +4,7 @@ class MovableObjekt extends DrawableObject {
     speedY = 0;
     acceleration = 2.5;
     energy = 100;
+    bossEnergy = 150;
     lastHit = 0;
     bottle = 0;
     coin = 0;
@@ -100,6 +101,16 @@ class MovableObjekt extends DrawableObject {
         this.energy -= 50;
         if (this.energy < 0) {
             this.energy = 0;
+        } else {
+            this.lastHit = new Date().getTime();
+        }
+    }
+
+
+    hitBossHard() {
+        this.bossEnergy -= 10;
+        if (this.bossEnergy < 0) {
+            this.bossEnergy = 0;
         } else {
             this.lastHit = new Date().getTime();
         }

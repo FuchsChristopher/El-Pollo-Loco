@@ -3,6 +3,7 @@ class SmallChicken extends MovableObjekt {
     height = 65;
     width = 70;
     energy = 1;
+    moveAnimation = false;
 
     image_Walking = [
         'img/3_enemies_chicken/chicken_small/1_walk/1_w.png',
@@ -17,6 +18,7 @@ class SmallChicken extends MovableObjekt {
     constructor() {
         super().loadImage('img/3_enemies_chicken/chicken_small/1_walk/1_w.png');
         this.loadImages(this.image_Walking);
+        this.loadImages(this.image_Dead);
         this.randomSpawnPoint();
         this.randomSpeed();
         this.animate();
@@ -36,8 +38,8 @@ class SmallChicken extends MovableObjekt {
 
     animate() {
         setInterval(() => {
-            this.moveLeft();
-            this.chickenReturn();
+                this.moveLeft();
+                this.chickenReturn();
         }, 1000 / 60);
 
         setInterval(() => {
@@ -48,7 +50,7 @@ class SmallChicken extends MovableObjekt {
             }
         }, 100)
 
-           
+
     }
 
 

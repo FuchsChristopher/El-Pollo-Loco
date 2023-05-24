@@ -123,7 +123,9 @@ class World {
             if (this.character.isCollidingTop(enemy) && this.character.y < 140) {
                 this.character.jump();
                 enemy.energy = 0;
-                this.level.enemies.splice(i, 1);
+                setTimeout(() => {
+                    this.level.enemies.splice(i, 1);
+                }, 1000)
             }
         });
     }

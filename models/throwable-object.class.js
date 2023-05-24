@@ -15,7 +15,7 @@ class ThrowableObject extends MovableObjekt {
 
 
     trow() {
-        this.speedY = 30;
+        this.speedY = 15;
         this.applyGravity();
 
         setInterval(() => {
@@ -28,7 +28,7 @@ class ThrowableObject extends MovableObjekt {
             if (this.otherDirection) {
                 this.x -= 10;
             } else {
-                this.x +=10;   
+                this.x += 10;   
             } this.angle += this.rotationSpeed;
             
     }

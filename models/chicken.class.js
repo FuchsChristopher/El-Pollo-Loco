@@ -19,6 +19,7 @@ class Chicken extends MovableObjekt {
         this.randomSpawnPoint();
         this.randomSpeed();
         this.animate();
+        this.animateTwo();
     }
 
 
@@ -31,17 +32,19 @@ class Chicken extends MovableObjekt {
         this.speed = 0.65 + Math.random() * 0.25;
     }
 
+    
     animate() {
-        setInterval(() => {
+        let animateInterval = setInterval(() => {
             this.moveLeft();
-            this.chickenReturn();
         }, 1000 / 60);
-
         setInterval(() => {
             if ((this.energy == 1)) {
                 this.playAnimation(this.image_Walking);
             } else {
                 this.playAnimation(this.image_Dead);
+                setTimeout(() => {
+                    clearInterval(animateInterval);
+                }, 1000 / 60);
             }
         }, 200);
     }
@@ -52,6 +55,13 @@ class Chicken extends MovableObjekt {
             this.randomSpawnPoint();
             this.randomSpeed();
         }
+    }
+
+
+    animateTwo() {
+        setInterval(() => {
+            this.chickenReturn();
+        }, 1000 / 60);
     }
 
 }

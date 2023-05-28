@@ -125,7 +125,7 @@ class World {
                 enemy.energy = 0;
                 setTimeout(() => {
                     this.level.enemies.splice(i, 1);
-                }, 1000)
+                }, 900)
             }
         });
     }

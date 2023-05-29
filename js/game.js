@@ -6,8 +6,9 @@ function ini() {
     canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard);
 
-
-
+    let EndScreen = document.getElementById('startAndEndscreen');
+    EndScreen.innerHTML = '';
+    EndScreen.classList.add('d-none');
     console.log('My Chraracter is', world.character);
 }
 
@@ -54,3 +55,21 @@ window.addEventListener("keydown", (e) => {
         keyboard.SPACE = true;
     }
 });
+
+
+function showEndScreen() {
+    let endScreen = document.getElementById('canvas');
+    endScreen.innerHTML = '';
+    endScreen.classList.add('d-none');
+    let startEndScreen = document.getElementById('startAndEndscreen');
+    startEndScreen.innerHTML = '';
+    startEndScreen.classList.remove('d-none');
+    showEndScreenTemplate();
+}
+
+function showEndScreenTemplate() {
+    let startEndScreen = document.getElementById('startAndEndscreen');
+    startEndScreen.innerHTML = `
+    <img class="endImg" src="img/9_intro_outro_screens/game_over/game over!.png">
+    `
+}

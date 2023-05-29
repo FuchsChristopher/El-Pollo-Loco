@@ -99,6 +99,7 @@ class Endboss extends MovableObjekt {
 
     endGame() {
         for (let i = 1; i < 9999; i++) window.clearInterval(i);
+        showEndScreen();
     }
 
 

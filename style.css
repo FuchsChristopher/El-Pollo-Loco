@@ -22,3 +22,26 @@ canvas {
     background-color: black;
     border-radius: 20px;
 }
+
+.d-none {
+    display: none !important; 
+}
+
+.startAndEndscreen {
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('img/5_background/first_half_background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Rye-Regular', Arial, Helvetica, sans-serif;
+    width: 720px;
+    height: 480px;
+}
+
+.endImg {
+    width: 720px;
+    height: 480px;
+    border-radius: 20px;
+}

@@ -10,6 +10,7 @@ function ini() {
     EndScreen.innerHTML = '';
     EndScreen.classList.add('d-none');
     console.log('My Chraracter is', world.character);
+    showStartScreen();
 }
 
 
@@ -57,6 +58,30 @@ window.addEventListener("keydown", (e) => {
 });
 
 
+function showStartScreen() {
+    let StartScreen = document.getElementById('canvas');
+    StartScreen.innerHTML = '';
+    StartScreen.classList.add('d-none');
+    let startEndScreen = document.getElementById('startAndEndscreen');
+    startEndScreen.innerHTML = '';
+    startEndScreen.classList.remove('d-none');
+    showStartScreenTemplate();
+}
+
+
+function showStartScreenTemplate() {
+    let StartScreen = document.getElementById('startAndEndscreen');
+    StartScreen.innerHTML = `
+    <div class="StartScreen">
+        <div class="buttonContainer">
+        <div><img class="playButtonImg" src="img/9_intro_outro_screens/start/playButton.png"></div>
+        <div><img class="soundButton" src="img/9_intro_outro_screens/start/audio-add.png"></div>
+        </div>
+    </div>
+    `;
+}
+
+
 function showEndScreen() {
     let endScreen = document.getElementById('canvas');
     endScreen.innerHTML = '';
@@ -70,6 +95,10 @@ function showEndScreen() {
 function showEndScreenTemplate() {
     let startEndScreen = document.getElementById('startAndEndscreen');
     startEndScreen.innerHTML = `
+    <div class="buttonContainer">
+    <div><img class="playButtonImg" src="img/9_intro_outro_screens/start/playButton.png"></div>
+    <div><img class="soundButton" src="img/9_intro_outro_screens/start/audio-add.png"></div>
+    </div>
     <img class="endImg" src="img/9_intro_outro_screens/game_over/game over!.png">
     `
 }

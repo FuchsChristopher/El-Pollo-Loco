@@ -100,6 +100,20 @@ class Endboss extends MovableObjekt {
     endGame() {
         for (let i = 1; i < 9999; i++) window.clearInterval(i);
         showEndScreen();
+        setTimeout(() => {
+           this.restartGame();
+        }, 2000)
+    }
+
+
+    restartGame() {
+        let endScreen = document.getElementById('canvas');
+        endScreen.innerHTML = '';
+        endScreen.classList.remove('d-none');
+        let startEndScreen = document.getElementById('startAndEndscreen');
+        startEndScreen.innerHTML = '';
+        startEndScreen.classList.add('d-none');
+        ini();
     }
 
 

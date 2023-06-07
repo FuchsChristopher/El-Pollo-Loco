@@ -68,3 +68,7 @@ canvas {
     width: 720px;
     height: 480px;
 }
+
+.playButtonImg {
+    cursor: pointer;
+}

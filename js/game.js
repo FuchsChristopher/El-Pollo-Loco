@@ -4,13 +4,15 @@ let keyboard = new Keyboard();
 
 function ini() {
     canvas = document.getElementById('canvas');
+    iniLevel();
     world = new World(canvas, keyboard);
 
     let EndScreen = document.getElementById('startAndEndscreen');
     EndScreen.innerHTML = '';
     EndScreen.classList.add('d-none');
-    console.log('My Chraracter is', world.character);
-    showStartScreen();
+    let StartCanvas = document.getElementById('canvas');
+    StartCanvas.innerHTML = '';
+    StartCanvas.classList.remove('d-none');
 }
 
 
@@ -74,7 +76,7 @@ function showStartScreenTemplate() {
     StartScreen.innerHTML = `
     <div class="StartScreen">
         <div class="buttonContainer">
-        <div><img class="playButtonImg" src="img/9_intro_outro_screens/start/playButton.png"></div>
+        <div><img onclick="ini()" class="playButtonImg" src="img/9_intro_outro_screens/start/playButton.png"></div>
         <div><img class="soundButton" src="img/9_intro_outro_screens/start/audio-add.png"></div>
         </div>
     </div>
@@ -96,8 +98,6 @@ function showEndScreenTemplate() {
     let startEndScreen = document.getElementById('startAndEndscreen');
     startEndScreen.innerHTML = `
     <div class="buttonContainer">
-    <div><img class="playButtonImg" src="img/9_intro_outro_screens/start/playButton.png"></div>
-    <div><img class="soundButton" src="img/9_intro_outro_screens/start/audio-add.png"></div>
     </div>
     <img class="endImg" src="img/9_intro_outro_screens/game_over/game over!.png">
     `

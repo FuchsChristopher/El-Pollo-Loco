@@ -18,6 +18,8 @@ class World {
 
     coinCollectSound = new Audio('audio/Collect_Coin.mp3');
     bottleCollectSound = new Audio('audio/Collect_Bottle.mp3');
+    jumpSoundChickens = new Audio('audio/Jump_Sound.mp3');
+
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -122,6 +124,7 @@ class World {
         this.level.enemies.forEach((enemy, i) => {
             if (this.character.isCollidingTop(enemy) && this.character.y < 140) {
                 this.character.jump();
+                this.jumpSoundChickens.play();
                 enemy.energy = 0;
                 setTimeout(() => {
                     this.level.enemies.splice(i, 1);

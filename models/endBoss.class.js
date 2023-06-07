@@ -107,13 +107,7 @@ class Endboss extends MovableObjekt {
 
 
     restartGame() {
-        let endScreen = document.getElementById('canvas');
-        endScreen.innerHTML = '';
-        endScreen.classList.remove('d-none');
-        let startEndScreen = document.getElementById('startAndEndscreen');
-        startEndScreen.innerHTML = '';
-        startEndScreen.classList.add('d-none');
-        ini();
+        showStartScreen();
     }
 
 

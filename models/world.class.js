@@ -18,7 +18,7 @@ class World {
 
     coinCollectSound = new Audio('audio/Collect_Coin.mp3');
     bottleCollectSound = new Audio('audio/Collect_Bottle.mp3');
-    jumpSoundChickens = new Audio('audio/Jump_Sound.mp3');
+    jumpSoundChickens = new Audio('audio/Jump2_Sound.mp3');
 
 
     constructor(canvas, keyboard) {

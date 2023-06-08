@@ -90,6 +90,8 @@ class Endboss extends MovableObjekt {
             
             setTimeout(() => {
                 this.endGame();
+                toggledMusic = false;
+                game_background_sound.pause();
             }, 900)
             
             

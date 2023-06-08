@@ -52,6 +52,7 @@ canvas {
     display: flex;
     gap: 33px;
     justify-content: end;
+    margin-top: 23px;
 }
 
 
@@ -71,4 +72,10 @@ canvas {
 
 .playButtonImg {
     cursor: pointer;
+    width: 35px;
+}
+
+.soundButton {
+    cursor: pointer;
+    width: 35px;
 }

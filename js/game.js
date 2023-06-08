@@ -1,6 +1,8 @@
 let canvas;
 let world;
 let keyboard = new Keyboard();
+let toggledMusic = false;
+let game_background_sound = new Audio('audio/Background_Sound.mp3');
 
 function ini() {
     canvas = document.getElementById('canvas');
@@ -77,7 +79,7 @@ function showStartScreenTemplate() {
     <div class="StartScreen">
         <div class="buttonContainer">
         <div><img onclick="ini()" class="playButtonImg" src="img/9_intro_outro_screens/start/playButton.png"></div>
-        <div><img class="soundButton" src="img/9_intro_outro_screens/start/audio-add.png"></div>
+        <div onclick="toggleMusic()" id="musicImg"><img class="soundButton" src="img/9_intro_outro_screens/start/audio-remove.png"></div>
         </div>
     </div>
     `;
@@ -97,8 +99,31 @@ function showEndScreen() {
 function showEndScreenTemplate() {
     let startEndScreen = document.getElementById('startAndEndscreen');
     startEndScreen.innerHTML = `
-    <div class="buttonContainer">
-    </div>
     <img class="endImg" src="img/9_intro_outro_screens/game_over/game over!.png">
     `
+}
+
+
+function toggleMusic() {
+    let container = document.getElementById('musicImg');
+    if(toggledMusic) {
+        toggleMusicOff(container);
+    } else {
+        toggleMusicOn(container);
+    }
+}
+
+
+function toggleMusicOn(container) {
+    toggledMusic = true;
+    game_background_sound.play();
+    game_background_sound.loop = true;
+    container.innerHTML = `<img class="soundButton" src="img/9_intro_outro_screens/start/audio-add.png">`;
+}
+
+
+function toggleMusicOff(container) {
+    toggledMusic = false;
+    game_background_sound.pause();
+    container.innerHTML = `<img class="soundButton" src="img/9_intro_outro_screens/start/audio-remove.png">`; 
 }

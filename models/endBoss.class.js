@@ -5,7 +5,6 @@ class Endboss extends MovableObjekt {
     width = 250;
     y = 60;
     speed = 0.15;
-    
     triggertBossEvent = false;
 
     image_Alert = [
@@ -92,9 +91,7 @@ class Endboss extends MovableObjekt {
                 this.endGame();
                 toggledMusic = false;
                 game_background_sound.pause();
-            }, 900)
-            
-            
+            }, 900)   
         }
     }
 
@@ -104,7 +101,7 @@ class Endboss extends MovableObjekt {
         showEndScreen();
         setTimeout(() => {
            this.restartGame();
-        }, 2000)
+        }, 3000)
     }
 
 

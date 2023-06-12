@@ -63,14 +63,6 @@ class World {
     }
 
 
-    /*checkThrowableObjects() {
-        if (this.keyboard.D) {
-            let bottle = new ThrowableObject(this.character.x + 100, this.character.y + 100);
-            this.throwableObject.push(bottle);
-        }
-    }*/
-
-
     setBottleStatus() {
         this.lastThrow = this.throwNow;
         this.character.bottle = this.character.bottle - 20;

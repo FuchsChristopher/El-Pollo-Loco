@@ -37,14 +37,6 @@ class MovableObjekt extends DrawableObject {
     }
 
 
-    /*isColliding(mo) {
-        return this.x + this.width > mo.x &&
-            this.y + this.height > mo.y + 65 &&
-            this.x < mo.x &&
-            this.y < mo.y + mo.height
-    }*/
-
-
     isColliding(mo) {
         return this.x + this.width - this.offset.right > mo.x + mo.offset.left &&
             this.y + this.height - this.offset.bottom > mo.y + 60 + mo.offset.top &&
@@ -60,14 +52,6 @@ class MovableObjekt extends DrawableObject {
             this.speedY <= 10 &&
             this.y < mo.y + mo.height;
     }
-
-
-    /*isCollidingTop(mo) {
-        return this.x + this.width > mo.x &&
-            this.y + this.height > mo.y &&
-            this.x < mo.x &&
-            this.y < mo.y + mo.height
-    }*/
 
 
     collectBottle() {

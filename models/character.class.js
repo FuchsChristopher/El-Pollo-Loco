@@ -68,7 +68,7 @@ class Character extends MovableObjekt {
 
     walking_sound = new Audio('audio/Walking.mp3');
     jumpSound = new Audio('audio/Jump_Sound.mp3');
-    
+
 
     constructor() {
         super().loadImage('img/2_character_pepe/2_walk/W-21.png');
@@ -107,6 +107,7 @@ class Character extends MovableObjekt {
         setInterval(() => {
             if (this.isDead()) {
                 this.playAnimation(this.image_Dead);
+                this.gameRestart();
             } else if (this.isHurt()) {
                 this.playAnimation(this.image_Hurt);
             } else {
@@ -144,6 +145,29 @@ class Character extends MovableObjekt {
             if (this.isAboveGround())
                 this.playAnimation(this.image_Jumping);
         }, 105)
+    }
 
+
+    gameRestart() {
+        setTimeout(() => {
+            this.endGame();
+            toggledMusic = false;
+            game_background_sound.pause();
+            this.walking_sound.pause();
+        }, 900)
+    }
+
+
+    endGame() {
+        for (let i = 1; i < 9999; i++) window.clearInterval(i);
+        showLoseScreen();
+        setTimeout(() => {
+            this.restartGame();
+        }, 3000)
+    }
+
+
+    restartGame() {
+        showStartScreen();
     }
 }

@@ -104,6 +104,24 @@ function showEndScreenTemplate() {
 }
 
 
+function showLoseScreen() {
+    let loseScreen = document.getElementById('canvas');
+    loseScreen.innerHTML = '';
+    loseScreen.classList.add('d-none');
+    let startloseScreen = document.getElementById('startAndEndscreen');
+    startloseScreen.innerHTML = '';
+    startloseScreen.classList.remove('d-none');
+    showLoseScreenTemplate();
+}
+
+function showLoseScreenTemplate() {
+    let startLoseScreen = document.getElementById('startAndEndscreen');
+    startLoseScreen.innerHTML = `
+    <img class="endImg" src="img/9_intro_outro_screens/game_over/oh no you lost!.png">
+    `
+}
+
+
 function toggleMusic() {
     let container = document.getElementById('musicImg');
     if(toggledMusic) {

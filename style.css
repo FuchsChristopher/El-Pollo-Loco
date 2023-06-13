@@ -79,3 +79,54 @@ canvas {
     cursor: pointer;
     width: 35px;
 }
+
+.questMarker {
+    cursor: pointer;
+    width: 35px;
+}
+
+.questDiv {
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('img/backgroundImage/Desert.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Rye-Regular', Arial, Helvetica, sans-serif;
+    width: 720px;
+    height: 480px;
+}
+
+.closeImg {
+    cursor: pointer;
+    width: 35px;
+}
+
+.howToPlayImg {
+    width: 45px;
+}
+
+.howToPlayImgSpace {
+    width: 45px;
+    margin-right: 105px;
+}
+
+.closeDiv {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+    margin-right: 66px;
+}
+
+.howToPlayDivs {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    font-size: 25px;
+}
+
+.howToPlayDiv {
+    width: 100%;
+}

@@ -80,9 +80,48 @@ function showStartScreenTemplate() {
         <div class="buttonContainer">
         <div><img onclick="ini()" class="playButtonImg" src="img/9_intro_outro_screens/start/playButton.png"></div>
         <div onclick="toggleMusic()" id="musicImg"><img class="soundButton" src="img/9_intro_outro_screens/start/audio-remove.png"></div>
+        <div onclick="howToPlay()"><img class="questMarker" src="img/9_intro_outro_screens/start/question-mark.png"></div>
         </div>
     </div>
     `;
+}
+
+
+function howToPlay() {
+    let howToPlayScreen = document.getElementById('canvas');
+    howToPlayScreen.innerHTML = '';
+    howToPlayScreen.classList.add('d-none');
+    let startHowToPlayScreen = document.getElementById('startAndEndscreen');
+    startHowToPlayScreen.innerHTML = '';
+    startHowToPlayScreen.classList.remove('d-none');
+    howToPlayTemplate();
+}
+
+
+function howToPlayTemplate() {
+    let startHowToPlayScreen = document.getElementById('startAndEndscreen');
+    startHowToPlayScreen.innerHTML = `
+    <div class="questDiv">
+        <div class="closeDiv" onclick="howToPlayClose()"><img class="closeImg" src="img/9_intro_outro_screens/start/x-mark.png"></div>
+        <div class="howToPlayDiv">
+            <div class="howToPlayDivs"><img class="howToPlayImg" src="img/howToPlayImg/arrow-left.png">Move left</div>
+            <div class="howToPlayDivs"><img class="howToPlayImg" src="img/howToPlayImg/arrow-right.png">Move right</div>
+            <div class="howToPlayDivs"><img class="howToPlayImg" src="img/howToPlayImg/letter-d.png">Throw botlte</div>
+            <div class="howToPlayDivs"><img class="howToPlayImgSpace" src="img/howToPlayImg/myspace.png">Jump</div>
+        </div>
+    </div>
+    `
+}
+
+
+function howToPlayClose() {
+    let howToPlayScreen = document.getElementById('canvas');
+    howToPlayScreen.innerHTML = '';
+    howToPlayScreen.classList.remove('d-none');
+    let startHowToPlayScreen = document.getElementById('startAndEndscreen');
+    startHowToPlayScreen.innerHTML = '';
+    startHowToPlayScreen.classList.add('d-none');
+    showStartScreen();
 }
 
 

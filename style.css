@@ -130,3 +130,25 @@ canvas {
 .howToPlayDiv {
     width: 100%;
 }
+
+.divMobileButtouns {
+    display: flex;
+    gap: 90px;
+    margin-top: 26px;
+}
+
+.mobileButton {
+    background-color: orange;
+    border-radius: 100%;
+    height: 56px;
+    width: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.mobileButtonImg {
+    width: 30px;
+    height: 30px;
+}

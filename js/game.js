@@ -62,6 +62,47 @@ window.addEventListener("keydown", (e) => {
 });
 
 
+document.getElementById('goLeft').addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    keyboard.LEFT = true;
+});
+
+document.getElementById('goLeft').addEventListener('touchend', (e) => {
+    e.preventDefault();
+    keyboard.LEFT = false;
+});
+
+document.getElementById('moveRight').addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    keyboard.RIGHT = true;
+});
+
+document.getElementById('moveRight').addEventListener('touchend', (e) => {
+    e.preventDefault();
+    keyboard.RIGHT = false;
+});
+
+document.getElementById('jumping').addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    keyboard.SPACE = true;
+});
+
+document.getElementById('jumping').addEventListener('touchend', (e) => {
+    e.preventDefault();
+    keyboard.SPACE = false;
+});
+
+document.getElementById('throwBottle').addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    keyboard.D = true;
+});
+
+document.getElementById('throwBottle').addEventListener('touchend', (e) => {
+    e.preventDefault();
+    keyboard.D = false;
+});
+
+
 function showStartScreen() {
     let StartScreen = document.getElementById('canvas');
     StartScreen.innerHTML = '';
@@ -163,7 +204,7 @@ function showLoseScreenTemplate() {
 
 function toggleMusic() {
     let container = document.getElementById('musicImg');
-    if(toggledMusic) {
+    if (toggledMusic) {
         toggleMusicOff(container);
     } else {
         toggleMusicOn(container);
@@ -182,5 +223,5 @@ function toggleMusicOn(container) {
 function toggleMusicOff(container) {
     toggledMusic = false;
     game_background_sound.pause();
-    container.innerHTML = `<img class="soundButton" src="img/9_intro_outro_screens/start/audio-remove.png">`; 
+    container.innerHTML = `<img class="soundButton" src="img/9_intro_outro_screens/start/audio-remove.png">`;
 }

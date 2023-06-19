@@ -92,7 +92,7 @@ class MovableObjekt extends DrawableObject {
 
 
     hitBossHard() {
-        this.bossEnergy -= 10;
+        this.bossEnergy -= 20;
         if (this.bossEnergy < 0) {
             this.bossEnergy = 0;
         } else {

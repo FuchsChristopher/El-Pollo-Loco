@@ -93,10 +93,13 @@ class World {
 
 
     collisionBottleToEnemy() {
-        this.throwableObject.forEach((bottle) => {
+        this.throwableObject.forEach((bottle, i) => {
             if (bottle.isColliding(this.endBoss)) {
                 this.endBoss.hitBossHard();
                 this.imagesStatusBarBos.setPercentage(this.endBoss.bossEnergy);
+                setTimeout(() => {
+                    this.throwableObject.splice(i, 1);
+                }, 200)
             }
         });
     }

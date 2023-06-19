@@ -7,6 +7,15 @@ class Endboss extends MovableObjekt {
     speed = 0.15;
     triggertBossEvent = false;
 
+    image_splash_bottle = [
+        'img/6_salsa_bottle/bottle_rotation/bottle_splash/1_bottle_splash.png',
+        'img/6_salsa_bottle/bottle_rotation/bottle_splash/2_bottle_splash.png',
+        'img/6_salsa_bottle/bottle_rotation/bottle_splash/3_bottle_splash.png',
+        'img/6_salsa_bottle/bottle_rotation/bottle_splash/4_bottle_splash.png',
+        'img/6_salsa_bottle/bottle_rotation/bottle_splash/5_bottle_splash.png',
+        'img/6_salsa_bottle/bottle_rotation/bottle_splash/6_bottle_splash.png'
+    ];
+
     image_Alert = [
         'img/4_enemie_boss_chicken/2_alert/G5.png',
         'img/4_enemie_boss_chicken/2_alert/G6.png',
@@ -53,7 +62,7 @@ class Endboss extends MovableObjekt {
         setInterval(() => {
             if (world.character.x >= 2000 && !this.triggertBossEvent) {
                 this.playAnimation(this.image_Alert);
-    
+
                 setTimeout(() => {
                     this.triggertBossEvent = true;
                 }, 2000)
@@ -74,7 +83,7 @@ class Endboss extends MovableObjekt {
 
     animate_2() {
         setInterval(() => {
-           this.bossAnimation();
+            this.bossAnimation();
         }, 400);
     }
 
@@ -86,12 +95,12 @@ class Endboss extends MovableObjekt {
             setInterval(() => {
                 this.playAnimation(this.image_Dead);
             }, 1000 / 10)
-            
+
             setTimeout(() => {
                 this.endGame();
                 toggledMusic = false;
                 game_background_sound.pause();
-            }, 900)   
+            }, 900)
         }
     }
 
@@ -100,7 +109,7 @@ class Endboss extends MovableObjekt {
         for (let i = 1; i < 9999; i++) window.clearInterval(i);
         showEndScreen();
         setTimeout(() => {
-           this.restartGame();
+            this.restartGame();
         }, 3000)
     }
 
@@ -113,4 +122,5 @@ class Endboss extends MovableObjekt {
     bossHurt() {
         this.playAnimation(this.image_Hurt);
     }
+
 }

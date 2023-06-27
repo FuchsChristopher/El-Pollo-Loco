@@ -163,6 +163,7 @@ class Character extends MovableObjekt {
         showLoseScreen();
         setTimeout(() => {
             this.restartGame();
+            test = false;
         }, 3000)
     }
 

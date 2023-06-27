@@ -4,7 +4,8 @@
 }
 
 
-body, html {
+body,
+html {
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -30,6 +31,7 @@ h1 {
 canvas {
     background-color: black;
     border-radius: 20px;
+    display: block;
 }
 
 .d-none {
@@ -56,7 +58,7 @@ canvas {
 }
 
 .buttonContainer {
-    width: 76%;
+    width: 95%;
     display: flex;
     gap: 33px;
     justify-content: end;
@@ -78,19 +80,15 @@ canvas {
     height: 480px;
 }
 
-.playButtonImg {
+.startImg {
     cursor: pointer;
     width: 35px;
+    transition: all ease-in-out 175ms;
 }
 
-.soundButton {
-    cursor: pointer;
-    width: 35px;
-}
-
-.questMarker {
-    cursor: pointer;
-    width: 35px;
+.startImg:hover {
+    transform: scale(1.2);
+    transition: all ease-in-out 175ms;
 }
 
 .questDiv {
@@ -140,16 +138,20 @@ canvas {
 }
 
 .divMobileButtouns {
+    position: absolute;
     display: flex;
-    gap: 90px;
-    margin-top: 26px;
+    justify-content: space-between;
+    left: 30px;
+    right: 30px;
+    font-size: 18px;
+    bottom: 10px;
 }
 
 .mobileButton {
     background-color: orange;
     border-radius: 100%;
-    height: 56px;
-    width: 56px;
+    height: 31px;
+    width: 39px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -157,19 +159,82 @@ canvas {
 }
 
 .mobileButtonImg {
-    width: 30px;
-    height: 30px;
+    display: flex;
+    width: 26px;
+}
+
+.gameArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -166px;
+}
+
+.moveButton {
+    display: flex;
+    gap: 26px;
+    position: absolute;
+    top: 354px;
+    left: 19px;
+}
+
+.jumpAndThrowButton {
+    display: flex;
+    gap: 26px;
+    position: absolute;
+    top: 336px;
+    right: 34px
+}
+
+.mobileButtonDiv {
+    display: flex;
+    gap: 10px;
 }
 
 
 @media only screen and (max-width: 720px) {
+    .startAndEndscreen {
+        width: 100%;
+    }
+
     canvas {
         width: 100%;
     }
 }
 
+@media only screen and (max-width: 730px) {
+    .startAndEndscreen {
+        width: 132vh;
+        height: 100vh;
+    }
+    .buttonContainer {
+        width: 20%;
+    }
+    .questDiv {
+        margin-top: 130px;
+    }
+
+    #cover {
+        width: 132vh;
+        height: 100vh;
+    }
+}
+
+
 @media only screen and (max-height: 480px) {
     canvas {
         height: 100vh;
+    }
+}
+
+@media only screen and (max-height: 415px) {
+    .startAndEndscreen {
+        height: 360px;
+    }
+}
+
+@media only screen and (max-height: 280px) {
+    .startAndEndscreen {
+        height: 243px;
     }
 }

@@ -34,7 +34,7 @@ class SmallChicken extends MovableObjekt {
 
 
     randomSpeed() {
-        this.speed = 4.00 + Math.random() * 0.25;
+        this.speed = 1.00 + Math.random() * 0.25;
     }
 
 

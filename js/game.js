@@ -132,6 +132,7 @@ function showStartScreenTemplate() {
         <div onclick="toggleMusic()" id="musicImg"><img class="startImg" src="img/9_intro_outro_screens/start/audio-remove.png"></div>
         <div onclick="howToPlay()"><img class="startImg" src="img/9_intro_outro_screens/start/question-mark.png"></div>
         </div>
+        <div class="turnDiviceDiv d-none2"> Please turn your device 90 degress </div>
     </div>
     `;
 }

@@ -224,7 +224,7 @@ canvas {
     }
 
     .buttonContainer {
-        width: 20%;
+        display: none;
     }
 
     .questDiv {
@@ -237,6 +237,24 @@ canvas {
     }
 
     .d-none2 {
+        display: flex !important;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .turnDiviceDiv {
+        width: 50%;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-height: 540px) {
+    .turnDiviceDiv {
+        display: none !important;
+    }
+
+    .buttonContainer {
+        width: 100%;
         display: flex !important;
     }
 }
@@ -254,8 +272,34 @@ canvas {
     }
 }
 
+@media only screen and (max-width: 415px) {
+    .turnDiviceDiv {
+        width: 32%;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    .turnDiviceDiv {
+        width: 42%;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    .turnDiviceDiv {
+        width: 30%;
+        text-align: center;
+    }
+}
+
 @media only screen and (max-height: 280px) {
     .startAndEndscreen {
         height: 243px;
+    }
+
+    .buttonContainer {
+        width: 50%;
+        display: flex;
     }
 }

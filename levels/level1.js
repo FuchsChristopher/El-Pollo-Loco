@@ -8,7 +8,7 @@ function iniLevel() {
             new Chicken(),
             new SmallChicken(),
             new SmallChicken(),
-            new SmallChicken(),
+            new SmallChicken()
         ],
         [
             new Cloud(),

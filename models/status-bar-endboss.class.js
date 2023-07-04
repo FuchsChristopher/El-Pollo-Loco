@@ -14,7 +14,6 @@ class StatusBarBoss extends DrawableObject {
     constructor() {
         super();
         this.loadImages(this.imagesStatusBarBoss);
-        this.loadImage(this.imagesStatusBarBoss);
         this.x = 490;
         this.y = 0;
         this.width = 230;

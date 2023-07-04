@@ -10,14 +10,24 @@ function ini() {
     canvas = document.getElementById('canvas');
     iniLevel();
     world = new World(canvas, keyboard);
-    let EndScreen = document.getElementById('startAndEndscreen');
-    EndScreen.innerHTML = '';
-    EndScreen.classList.add('d-none');
+    hiddenEndScreen();
+    StartCanvas();
+    keyboradsPress(keyboard);
+    buttonsPress(keyboard);
+}
+
+
+function StartCanvas() {
     let StartCanvas = document.getElementById('canvas');
     StartCanvas.innerHTML = '';
     StartCanvas.classList.remove('d-none');
-    keyboradsPress(keyboard);
-    buttonsPress(keyboard);
+}
+
+
+function hiddenEndScreen() {
+    let EndScreen = document.getElementById('startAndEndscreen');
+    EndScreen.innerHTML = '';
+    EndScreen.classList.add('d-none');
 }
 
 
@@ -119,7 +129,7 @@ function showStartScreen() {
     startEndScreen.classList.remove('d-none');
     let divMobileButtons = document.getElementById('divMobileButtouns');
     divMobileButtons.classList.add('d-none');
-    showStartScreenTemplate();
+    showStartScreenTemplate(); 
 }
 
 
@@ -239,28 +249,33 @@ function toggleMusicOff(container) {
 
 function checkOrientation() {
     if (window.matchMedia("(orientation: landscape)").matches) {
-      canvasPortraitScape();
-      document.getElementById('divMobileButtouns').classList.add('d-none');
-  
+        canvasPortraitScape();
+        document.getElementById('divMobileButtouns').classList.add('d-none');
+        
     } else if (test == true) {
-      canvasLandScape();
-      document.getElementById('divMobileButtouns').classList.remove('d-none');
-  
+        canvasLandScape();
+        mobileButtonsSee();
+
     }
-  }
-  
-  window.addEventListener("orientationchange", checkOrientation);
-  
-  function canvasPortraitScape() {
+}
+
+window.addEventListener("orientationchange", checkOrientation);
+
+
+function mobileButtonsSee() {
+    document.getElementById('divMobileButtouns').classList.remove('d-none');
+}
+
+
+function canvasPortraitScape() {
     document.getElementById('canvas').style.width = '100%';
     document.getElementById('canvas').style.height = 'calc(100% - 59px)';
     document.getElementById('canvas').style.borderRadius = '15px';
-  }
-  
-  function canvasLandScape() {
+}
+
+function canvasLandScape() {
     document.getElementById('canvas').style.width = '100vw';
     document.getElementById('canvas').style.height = '100vh';
     document.getElementById('canvas').style.marginBottom = '-22px';
     document.getElementById('canvas').style.borderRadius = '0px';
-  }
-  
+}

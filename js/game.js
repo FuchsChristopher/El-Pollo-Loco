@@ -3,10 +3,9 @@ let world;
 let keyboard = new Keyboard();
 let toggledMusic = false;
 let game_background_sound = new Audio('audio/Background_Sound.mp3');
-let test = false;
+
 
 function ini() {
-    test = true;
     canvas = document.getElementById('canvas');
     iniLevel();
     world = new World(canvas, keyboard);
@@ -247,19 +246,26 @@ function toggleMusicOff(container) {
 }
 
 
+window.addEventListener("orientationchange", checkOrientation);
+
+
 function checkOrientation() {
-    if (window.matchMedia("(orientation: landscape)").matches) {
+    test2 = false;
+    if (window.matchMedia("(orientation: landscape)").matches && !test2) {
         canvasPortraitScape();
         document.getElementById('divMobileButtouns').classList.add('d-none');
-        
-    } else if (test == true) {
+    } else {
         canvasLandScape();
-        mobileButtonsSee();
-
+        test2 = true;
+    } if (test2 === true && test3 === true) {
+        setTimeout(() => {
+            mobileButtonsSee();
+        },2000)
+    } else {
+        test2 = false;
+        test3 = false;
     }
 }
-
-window.addEventListener("orientationchange", checkOrientation);
 
 
 function mobileButtonsSee() {
@@ -278,4 +284,5 @@ function canvasLandScape() {
     document.getElementById('canvas').style.height = '100vh';
     document.getElementById('canvas').style.marginBottom = '-22px';
     document.getElementById('canvas').style.borderRadius = '0px';
+    test3 = true;
 }

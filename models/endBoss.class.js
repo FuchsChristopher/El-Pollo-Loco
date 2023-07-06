@@ -96,7 +96,6 @@ class Endboss extends MovableObjekt {
                 this.speed = 0;
                 this.playAnimation(this.image_Dead);
             }, 1000 / 10)
-
             setTimeout(() => {
                 this.endGame();
                 toggledMusic = false;
@@ -111,7 +110,6 @@ class Endboss extends MovableObjekt {
         showEndScreen();
         setTimeout(() => {
             this.restartGame();
-            test = false;
         }, 3000)
     }
 

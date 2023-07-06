@@ -162,19 +162,23 @@ class World {
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
         this.ctx.translate(this.camera_x, 0);
         this.addObjectsToMap(this.level.backgroundObjects);
-
         this.ctx.translate(-this.camera_x, 0);
         // ------- Space for fixed Objects -------
-        this.addToMap(this.statusBarHealth);
-        this.addToMap(this.statusBarCoin);
-        this.addToMap(this.statusBarBottle);
-        this.addToMap(this.imagesStatusBarBos);
-        this.addToMap(this.imagesStatusBarBosss);
+        this.manyStatusbars();
         this.ctx.translate(this.camera_x, 0);
+        this.manyObjects();
+        this.ctx.translate(-this.camera_x, 0);
+        
+        let self = this;
+        requestAnimationFrame(function () {
+            self.draw();
+        });
+    }
 
+
+    manyObjects() {
         this.addToMap(this.character);
         this.addToMap(this.endBoss);
         this.addObjectsToMap(this.level.bottles);
@@ -182,15 +186,17 @@ class World {
         this.addObjectsToMap(this.level.clouds);
         this.addObjectsToMap(this.level.enemies);
         this.addObjectsToMap(this.throwableObject);
-
-        this.ctx.translate(-this.camera_x, 0);
-
-
-        let self = this;
-        requestAnimationFrame(function () {
-            self.draw();
-        });
     }
+
+
+    manyStatusbars() {
+        this.addToMap(this.statusBarHealth);
+        this.addToMap(this.statusBarCoin);
+        this.addToMap(this.statusBarBottle);
+        this.addToMap(this.imagesStatusBarBos);
+        this.addToMap(this.imagesStatusBarBosss);
+    }
+
 
     addObjectsToMap(objects) {
         objects.forEach(o => {

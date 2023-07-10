@@ -5,6 +5,10 @@ let toggledMusic = false;
 let game_background_sound = new Audio('audio/Background_Sound.mp3');
 
 
+/**
+ * The function starts the game by initializing the canvas, creating a world, and
+ * animating all small and normal chickens. 
+ */
 function ini() {
     canvas = document.getElementById('canvas');
     iniLevel();
@@ -15,7 +19,9 @@ function ini() {
     buttonsPress(keyboard);
 }
 
-
+/**
+ * With this function make you the game visible.
+ */
 function StartCanvas() {
     let StartCanvas = document.getElementById('canvas');
     StartCanvas.innerHTML = '';
@@ -23,6 +29,9 @@ function StartCanvas() {
 }
 
 
+/**
+ * With this function make you the endScreen hidden.
+ */
 function hiddenEndScreen() {
     let EndScreen = document.getElementById('startAndEndscreen');
     EndScreen.innerHTML = '';
@@ -119,6 +128,10 @@ function buttonsPress(keyboard) {
 
 
 
+/**
+ *  This function make  visible the start screen, also make this hidden
+ * the canvas and otherwise make this hidden the mobile button. 
+ */
 function showStartScreen() {
     let canvasScreen = document.getElementById('canvas');
     canvasScreen.innerHTML = '';
@@ -132,6 +145,9 @@ function showStartScreen() {
 }
 
 
+/**
+ * This function make the visible tamplate for the start screen.
+ */
 function showStartScreenTemplate() {
     let StartScreen = document.getElementById('startAndEndscreen');
     StartScreen.innerHTML = `
@@ -147,6 +163,10 @@ function showStartScreenTemplate() {
 }
 
 
+/**
+ *  This function make  visible the how to play screen, also make this hidden
+ * the canvas. 
+ */
 function howToPlay() {
     let howToPlayScreen = document.getElementById('canvas');
     howToPlayScreen.innerHTML = '';
@@ -158,6 +178,9 @@ function howToPlay() {
 }
 
 
+/**
+ * This function make the visible tamplate for the how to play screen.
+ */
 function howToPlayTemplate() {
     let startHowToPlayScreen = document.getElementById('startAndEndscreen');
     startHowToPlayScreen.innerHTML = `
@@ -174,6 +197,9 @@ function howToPlayTemplate() {
 }
 
 
+/**
+ * This function close the how to play template
+ */
 function howToPlayClose() {
     let howToPlayScreen = document.getElementById('canvas');
     howToPlayScreen.innerHTML = '';
@@ -185,6 +211,10 @@ function howToPlayClose() {
 }
 
 
+/**
+ * This function make  visible the how to end screen, also make this hidden
+ * the canvas. 
+ */
 function showEndScreen() {
     let endScreen = document.getElementById('canvas');
     endScreen.innerHTML = '';
@@ -195,6 +225,10 @@ function showEndScreen() {
     showEndScreenTemplate();
 }
 
+
+/**
+ * This function make the visible tamplate for the end screen.
+ */
 function showEndScreenTemplate() {
     let startEndScreen = document.getElementById('startAndEndscreen');
     startEndScreen.innerHTML = `
@@ -203,6 +237,10 @@ function showEndScreenTemplate() {
 }
 
 
+/**
+ * This function make  visible the how to lose screen, also make this hidden
+ * the canvas. 
+ */
 function showLoseScreen() {
     let loseScreen = document.getElementById('canvas');
     loseScreen.innerHTML = '';
@@ -213,6 +251,10 @@ function showLoseScreen() {
     showLoseScreenTemplate();
 }
 
+
+/**
+ * This function make the visible tamplate for the lose screen.
+ */
 function showLoseScreenTemplate() {
     let startLoseScreen = document.getElementById('startAndEndscreen');
     startLoseScreen.innerHTML = `
@@ -221,6 +263,9 @@ function showLoseScreenTemplate() {
 }
 
 
+/**
+ * In this function switch the Images audio-add and audio-remove.
+ */
 function toggleMusic() {
     let container = document.getElementById('musicImg');
     if (toggledMusic) {
@@ -231,6 +276,9 @@ function toggleMusic() {
 }
 
 
+/**
+ *  In this function start the background music.
+ */
 function toggleMusicOn(container) {
     toggledMusic = true;
     game_background_sound.play();
@@ -239,6 +287,9 @@ function toggleMusicOn(container) {
 }
 
 
+/**
+ *  In this function start the break of background music.
+ */
 function toggleMusicOff(container) {
     toggledMusic = false;
     game_background_sound.pause();
@@ -249,6 +300,9 @@ function toggleMusicOff(container) {
 window.addEventListener("orientationchange", checkOrientation);
 
 
+/**
+ * This function check the orientation on mobile phone
+ */
 function checkOrientation() {
     test2 = false;
     if (window.matchMedia("(orientation: landscape)").matches && !test2) {

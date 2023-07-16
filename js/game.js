@@ -141,7 +141,7 @@ function showStartScreen() {
     startEndScreen.classList.remove('d-none');
     let divMobileButtons = document.getElementById('divMobileButtouns');
     divMobileButtons.classList.add('d-none');
-    showStartScreenTemplate(); 
+    showStartScreenTemplate();
 }
 
 
@@ -297,21 +297,21 @@ function toggleMusicOff(container) {
 }
 
 
-window.addEventListener("orientationchange", checkOrientation);
+//window.addEventListener("orientationchange", checkOrientation);
 
 
 /**
- * This function check the orientation on mobile phone
+ * This function check the orientation on mobile phones or tablets
  */
-function checkOrientation() {
+/*function checkOrientation() {
     test2 = false;
+    test3 = false;
     if (window.matchMedia("(orientation: landscape)").matches && !test2) {
         canvasPortraitScape();
-        document.getElementById('divMobileButtouns').classList.add('d-none');
+        mobileButtonsHidden();
     } else {
         canvasLandScape();
-        test2 = true;
-    } if (test2 === true && test3 === true) {
+    } if (test3 === true && test2 === true) {
         setTimeout(() => {
             mobileButtonsSee();
         },2000)
@@ -319,11 +319,36 @@ function checkOrientation() {
         test2 = false;
         test3 = false;
     }
+}*/
+
+
+let mediaQuery = window.matchMedia("(orientation: landscape)");
+
+function handleOrientationChange(mediaQuery) {
+    if (mediaQuery.matches) {
+        canvasLandScape();
+        mobileButtonsSee();
+    } else {
+        canvasPortraitScape();
+        mobileButtonsHidden();
+    }
+
 }
+
+// Ereignislistener hinzufügen, um auf Änderungen der Fensterorientierung zu reagieren
+mediaQuery.addListener(handleOrientationChange);
+
+// Initialen Aufruf der Funktion, um die aktuelle Fensterorientierung zu überprüfen
+handleOrientationChange(mediaQuery);
 
 
 function mobileButtonsSee() {
     document.getElementById('divMobileButtouns').classList.remove('d-none');
+}
+
+
+function mobileButtonsHidden() {
+    document.getElementById('divMobileButtouns').classList.add('d-none');
 }
 
 
@@ -338,5 +363,4 @@ function canvasLandScape() {
     document.getElementById('canvas').style.height = '100vh';
     document.getElementById('canvas').style.marginBottom = '-22px';
     document.getElementById('canvas').style.borderRadius = '0px';
-    test3 = true;
 }

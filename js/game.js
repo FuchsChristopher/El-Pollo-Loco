@@ -132,134 +132,94 @@ function buttonsPress(keyboard) {
  *  This function make  visible the start screen, also make this hidden
  * the canvas and otherwise make this hidden the mobile button. 
  */
+function showScreen(elementId, templateFunction) {
+    const screen = document.getElementById('canvas');
+    screen.
+        screen
+    innerHTML = '';
+    screen.
+        classList.add('d-none');
+    const startEndScreen = document.getElementById('startAndEndscreen');
+    startEndScreen.
+        innerHTML = '';
+    startEndScreen.
+        classList.remove('d-none');
+    templateFunction();
+}
+
+
 function showStartScreen() {
-    let canvasScreen = document.getElementById('canvas');
-    canvasScreen.innerHTML = '';
-    canvasScreen.classList.add('d-none');
-    let startEndScreen = document.getElementById('startAndEndscreen');
-    startEndScreen.innerHTML = '';
-    startEndScreen.classList.remove('d-none');
-    let divMobileButtons = document.getElementById('divMobileButtouns');
-    divMobileButtons.classList.add('d-none');
-    showStartScreenTemplate();
+    showScreen('canvas', showStartScreenTemplate);
 }
 
 
-/**
- * This function make the visible tamplate for the start screen.
- */
 function showStartScreenTemplate() {
-    let StartScreen = document.getElementById('startAndEndscreen');
-    StartScreen.innerHTML = `
-    <div id="cover" class="StartScreen">
-        <div class="buttonContainer">
-        <div><img onclick="ini()" class="startImg" src="img/9_intro_outro_screens/start/playButton.png"></div>
-        <div onclick="toggleMusic()" id="musicImg"><img class="startImg" src="img/9_intro_outro_screens/start/audio-remove.png"></div>
-        <div onclick="howToPlay()"><img class="startImg" src="img/9_intro_outro_screens/start/question-mark.png"></div>
-        </div>
-        <div class="turnDiviceDiv d-none2"> Please turn your device 90 degress </div>
-    </div>
-    `;
+    const startScreen = document.getElementById('startAndEndscreen');
+    startScreen.innerHTML = `
+            <div id="cover" class="StartScreen">
+                <div class="buttonContainer">
+                    <div><img onclick="ini()" class="startImg" src="img/9_intro_outro_screens/start/playButton.png"></div>
+                    <div onclick="toggleMusic()" id="musicImg"><img class="startImg" src="img/9_intro_outro_screens/start/audio-remove.png"></div>
+                    <div onclick="howToPlay()"><img class="startImg" src="img/9_intro_outro_screens/start/question-mark.png"></div>
+                </div>
+                <div class="turnDiviceDiv d-none2"> Please turn your device 90 degress </div>
+            </div>
+        `;
 }
 
 
-/**
- *  This function make  visible the how to play screen, also make this hidden
- * the canvas. 
- */
 function howToPlay() {
-    let howToPlayScreen = document.getElementById('canvas');
-    howToPlayScreen.innerHTML = '';
-    howToPlayScreen.classList.add('d-none');
-    let startHowToPlayScreen = document.getElementById('startAndEndscreen');
-    startHowToPlayScreen.innerHTML = '';
-    startHowToPlayScreen.classList.remove('d-none');
-    howToPlayTemplate();
+    showScreen('canvas', howToPlayTemplate);
 }
 
 
-/**
- * This function make the visible tamplate for the how to play screen.
- */
 function howToPlayTemplate() {
-    let startHowToPlayScreen = document.getElementById('startAndEndscreen');
-    startHowToPlayScreen.innerHTML = `
-    <div class="questDiv">
-        <div class="closeDiv" onclick="howToPlayClose()"><img class="closeImg" src="img/9_intro_outro_screens/start/x-mark.png"></div>
-        <div class="howToPlayDiv">
-            <div class="howToPlayDivs"><img class="howToPlayImg" src="img/howToPlayImg/arrow-left.png">Move left</div>
-            <div class="howToPlayDivs"><img class="howToPlayImg" src="img/howToPlayImg/arrow-right.png">Move right</div>
-            <div class="howToPlayDivs"><img class="howToPlayImg" src="img/howToPlayImg/letter-d.png">Throw botlte</div>
-            <div class="howToPlayDivs"><img class="howToPlayImgSpace" src="img/howToPlayImg/myspace.png">Jump</div>
-        </div>
-    </div>
-    `
+    const startHowToPlayScreen = document.getElementById('startAndEndscreen');
+    startHowToPlayScreen.
+        innerHTML = `
+            <div class="questDiv">
+                <div class="closeDiv" onclick="howToPlayClose()"><img class="closeImg" src="img/9_intro_outro_screens/start/x-mark.png"></div>
+                <div class="howToPlayDiv">
+                    <div class="howToPlayDivs"><img class="howToPlayImg" src="img/howToPlayImg/arrow-left.png">Move left</div>
+                    <div class="howToPlayDivs"><img class="howToPlayImg" src="img/howToPlayImg/arrow-right.png">Move right</div>
+                    <div class="howToPlayDivs"><img class="howToPlayImg" src="img/howToPlayImg/letter-d.png">Throw bottle</div>
+                    <div class="howToPlayDivs"><img class="howToPlayImgSpace" src="img/howToPlayImg/myspace.png">Jump</div>
+                </div>
+            </div>
+        `;
 }
 
 
-/**
- * This function close the how to play template
- */
 function howToPlayClose() {
-    let howToPlayScreen = document.getElementById('canvas');
-    howToPlayScreen.innerHTML = '';
-    howToPlayScreen.classList.remove('d-none');
-    let startHowToPlayScreen = document.getElementById('startAndEndscreen');
-    startHowToPlayScreen.innerHTML = '';
-    startHowToPlayScreen.classList.add('d-none');
-    showStartScreen();
+    showScreen('canvas', showStartScreen);
 }
 
 
-/**
- * This function make  visible the how to end screen, also make this hidden
- * the canvas. 
- */
 function showEndScreen() {
-    let endScreen = document.getElementById('canvas');
-    endScreen.innerHTML = '';
-    endScreen.classList.add('d-none');
-    let startEndScreen = document.getElementById('startAndEndscreen');
-    startEndScreen.innerHTML = '';
-    startEndScreen.classList.remove('d-none');
-    showEndScreenTemplate();
+    showScreen('canvas', showEndScreenTemplate);
 }
 
 
-/**
- * This function make the visible tamplate for the end screen.
- */
 function showEndScreenTemplate() {
-    let startEndScreen = document.getElementById('startAndEndscreen');
-    startEndScreen.innerHTML = `
-    <img class="endImg" src="img/9_intro_outro_screens/game_over/game over!.png">
-    `
+    const startEndScreen = document.getElementById('startAndEndscreen');
+    startEndScreen.
+        innerHTML = `
+            <img class="endImg" src="img/9_intro_outro_screens/game_over/game over!.png">
+        `;
 }
 
 
-/**
- * This function make  visible the how to lose screen, also make this hidden
- * the canvas. 
- */
 function showLoseScreen() {
-    let loseScreen = document.getElementById('canvas');
-    loseScreen.innerHTML = '';
-    loseScreen.classList.add('d-none');
-    let startloseScreen = document.getElementById('startAndEndscreen');
-    startloseScreen.innerHTML = '';
-    startloseScreen.classList.remove('d-none');
-    showLoseScreenTemplate();
+    showScreen('canvas', showLoseScreenTemplate);
 }
 
 
-/**
- * This function make the visible tamplate for the lose screen.
- */
 function showLoseScreenTemplate() {
-    let startLoseScreen = document.getElementById('startAndEndscreen');
-    startLoseScreen.innerHTML = `
-    <img class="endImg" src="img/9_intro_outro_screens/game_over/oh no you lost!.png">
-    `
+    const startLoseScreen = document.getElementById('startAndEndscreen');
+    startLoseScreen.
+        innerHTML = `
+            <img class="endImg" src="img/9_intro_outro_screens/game_over/oh no you lost!.png">
+        `;
 }
 
 
@@ -297,49 +257,21 @@ function toggleMusicOff(container) {
 }
 
 
-//window.addEventListener("orientationchange", checkOrientation);
+window.addEventListener("orientationchange", checkOrientation);
 
 
 /**
  * This function check the orientation on mobile phones or tablets
  */
-/*function checkOrientation() {
-    test2 = false;
-    test3 = false;
-    if (window.matchMedia("(orientation: landscape)").matches && !test2) {
+function checkOrientation() {
+    if (window.matchMedia("(orientation: landscape)").matches) {
         canvasPortraitScape();
         mobileButtonsHidden();
     } else {
-        canvasLandScape();
-    } if (test3 === true && test2 === true) {
-        setTimeout(() => {
-            mobileButtonsSee();
-        },2000)
-    } else {
-        test2 = false;
-        test3 = false;
-    }
-}*/
-
-
-let mediaQuery = window.matchMedia("(orientation: landscape)");
-
-function handleOrientationChange(mediaQuery) {
-    if (mediaQuery.matches) {
         canvasLandScape();
         mobileButtonsSee();
-    } else {
-        canvasPortraitScape();
-        mobileButtonsHidden();
     }
-
 }
-
-// Ereignislistener hinzufügen, um auf Änderungen der Fensterorientierung zu reagieren
-mediaQuery.addListener(handleOrientationChange);
-
-// Initialen Aufruf der Funktion, um die aktuelle Fensterorientierung zu überprüfen
-handleOrientationChange(mediaQuery);
 
 
 function mobileButtonsSee() {
@@ -355,7 +287,7 @@ function mobileButtonsHidden() {
 function canvasPortraitScape() {
     document.getElementById('canvas').style.width = '100%';
     document.getElementById('canvas').style.height = 'calc(100% - 59px)';
-    document.getElementById('canvas').style.borderRadius = '15px';
+    document.getElementById('canvas').style.borderRadius = '25px';
 }
 
 function canvasLandScape() {

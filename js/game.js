@@ -25,7 +25,7 @@ function ini() {
 function StartCanvas() {
     let StartCanvas = document.getElementById('canvas');
     StartCanvas.innerHTML = '';
-    StartCanvas.classList.remove('d-none');
+    StartCanvas.classList.remove('d-none'); 
 }
 
 
@@ -127,12 +127,7 @@ function buttonsPress(keyboard) {
 }
 
 
-
-/**
- *  This function make  visible the start screen, also make this hidden
- * the canvas and otherwise make this hidden the mobile button. 
- */
-function showScreen(elementId, templateFunction) {
+function showScreen(element, templateFunction) {
     const screen = document.getElementById('canvas');
     screen.
         screen
@@ -276,6 +271,7 @@ function checkOrientation() {
 
 function mobileButtonsSee() {
     document.getElementById('divMobileButtouns').classList.remove('d-none');
+    document.getElementById('divMobileButtouns').classList.remove('divMobileButtouns2');
 }
 
 

@@ -147,6 +147,15 @@ canvas {
     bottom: 10px;
 }
 
+.divMobileButtouns2 {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    left: 30px;
+    right: 30px;
+    font-size: 18px;
+}
+
 .mobileButton {
     background-color: rgba(255, 166, 33, 0.726);
     border-radius: 100%;

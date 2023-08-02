@@ -10,6 +10,10 @@ class Bottle extends MovableObjekt {
     ];
 
 
+    /**
+     * craete a bottle object.
+     * the x coordinate of the bottle.
+     */
     constructor() {
         super();
         this.selectImage();
@@ -17,6 +21,9 @@ class Bottle extends MovableObjekt {
         this.x = 100 + Math.random() * 2100;
     }
 
+    /**
+     * sets the image of the bottle.
+     */
     selectImage() {
         let index = Math.floor(Math.random() * 2);
         this.img = this.images_Bottles[index];

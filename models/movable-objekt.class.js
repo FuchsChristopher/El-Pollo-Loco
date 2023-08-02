@@ -16,6 +16,9 @@ class MovableObjekt extends DrawableObject {
     }
 
 
+    /**
+     * Applies gravity to the moveable object.
+     */
     applyGravity() {
         setInterval(() => {
             if (this.isAboveGround() || this.speedY > 0) {
@@ -26,6 +29,10 @@ class MovableObjekt extends DrawableObject {
     }
 
 
+     /**
+     * Checks if the moveable object is above the ground.
+     * @returns {boolean} - True if the object is above the ground, false otherwise.
+     */
     isAboveGround() {
         if (this instanceof ThrowableObject) {
             return true;
@@ -37,6 +44,11 @@ class MovableObjekt extends DrawableObject {
     }
 
 
+    /**
+     * Checks if the object is colliding with another object.
+     * @param {object} object - The other object to check collision against.
+     * @returns {boolean} - True if the objects are colliding, false otherwise.
+     */
     isColliding(mo) {
         return this.x + this.width - this.offset.right > mo.x + mo.offset.left &&
             this.y + this.height - this.offset.bottom > mo.y + 60 + mo.offset.top &&
@@ -45,6 +57,11 @@ class MovableObjekt extends DrawableObject {
     }
 
 
+    /**
+     * Checks if the object is colliding with another objects top.
+     * @param {*} object - - The other object to check collision against.
+     * @returns {boolean} - True if the objects are colliding with top, false otherwise.
+     */
     isCollidingTop(mo) {
         return this.x + this.width > mo.x &&
             this.y + this.height > mo.y &&
@@ -54,6 +71,9 @@ class MovableObjekt extends DrawableObject {
     }
 
 
+    /**
+     * Collects a bottle, increasing the bottle count.
+     */
     collectBottle() {
         this.bottle += 20;
         if(this.bottle >= 100) {
@@ -62,6 +82,9 @@ class MovableObjekt extends DrawableObject {
     }
 
 
+    /**
+     * Collects a coin, increasing the coin count.
+     */
     collectCoin() {
         this.coin += 20;
         if (this.coin >= 100) {
@@ -70,7 +93,9 @@ class MovableObjekt extends DrawableObject {
     }
 
 
-
+    /**
+     * Hits the object, reducing its health.
+     */
     hit() {
         this.energy -= 0.5;
         if (this.energy < 0) {
@@ -80,7 +105,9 @@ class MovableObjekt extends DrawableObject {
         }
     }
 
-
+    /**
+     * Hits the object (character), reducing its health.
+     */
     hitBoss() {
         this.energy -= 50;
         if (this.energy < 0) {
@@ -91,6 +118,9 @@ class MovableObjekt extends DrawableObject {
     }
 
 
+    /**
+     * Hits the object (endBoss), reducing its health.
+     */
     hitBossHard() {
         this.bossEnergy -= 20;
         if (this.bossEnergy < 0) {
@@ -101,6 +131,10 @@ class MovableObjekt extends DrawableObject {
     }
 
 
+    /**
+     * Checks if the object is currently hurt.
+     * @returns {boolean} - True if the object is hurt, false otherwise.
+     */
     isHurt() {
         let timepassed = new Date().getTime() - this.lastHit; //Difference in ms
         timepassed = timepassed / 1000; //Differense in s
@@ -108,11 +142,19 @@ class MovableObjekt extends DrawableObject {
     }
 
 
+     /**
+     * Checks if the object is dead (health equals zero).
+     * @returns {boolean} - True if the object is dead, false otherwise.
+     */
     isDead() {
         return this.energy == 0;
     }
 
 
+     /**
+     * Plays an animation for the object using a set of images.
+     * @param {*} images - The paths to the images for the animation.
+     */
     playAnimation(images) {
         let i = this.curentImage % images.length;
         let path = images[i];
@@ -121,16 +163,25 @@ class MovableObjekt extends DrawableObject {
     }
 
 
+    /**
+     * This function makes movement to the right.
+     */
     moveRight() {
         this.x += this.speed;
     }
 
 
+    /**
+     * This function makes movement to the left.
+     */
     moveLeft() {
         this.x -= this.speed;
     }
 
 
+    /**
+     * this function makes to jump to the air.
+     */
     jump() {
         this.speedY = 23;
     }

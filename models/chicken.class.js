@@ -12,6 +12,10 @@ class Chicken extends MovableObjekt {
         'img/3_enemies_chicken/chicken_normal/2_dead/dead.png'
     ];
 
+
+    /**
+     * Creates a instance of Chicken.
+     */
     constructor() {
         super().loadImage('img/3_enemies_chicken/chicken_normal/1_walk/1_w.png');
         this.loadImages(this.image_Walking);
@@ -22,17 +26,24 @@ class Chicken extends MovableObjekt {
         this.animateTwo();
     }
 
-
+    /**
+     * the chicken spant at random place.
+     */
     randomSpawnPoint() {
         this.x = 600 + Math.random() * 500;
     }
 
 
+    /**
+     * the chicken gets a random speed.
+     */
     randomSpeed() {
         this.speed = 0.65 + Math.random() * 0.25;
     }
 
-    
+    /**
+     * specifies which animation to played
+     */
     animate() {
         let animateInterval = setInterval(() => {
             this.moveLeft();
@@ -50,6 +61,10 @@ class Chicken extends MovableObjekt {
     }
 
 
+    /**
+     * the chicken spant at random place.
+     * the chicken gets a random speed.
+     */
     chickenReturn() {
         if (this.x < -300) {
             this.randomSpawnPoint();
@@ -58,6 +73,9 @@ class Chicken extends MovableObjekt {
     }
 
 
+    /**
+     * specifies which animation to played
+     */
     animateTwo() {
         setInterval(() => {
             this.chickenReturn();

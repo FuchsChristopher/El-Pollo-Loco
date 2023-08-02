@@ -10,6 +10,9 @@ class Coin extends MovableObjekt {
     ];
 
 
+    /**
+     * Creates a instance of Coin.
+     */
     constructor() {
         super();
         this.selectImage();
@@ -18,6 +21,10 @@ class Coin extends MovableObjekt {
         this.y = 200 + Math.random() * 150;
     }
 
+
+    /**
+     * sets the image of the coin.
+     */
     selectImage() {
         let index = Math.floor(Math.random() * 2);
         this.img = this.images_Coins[index];

@@ -8,12 +8,20 @@ class DrawableObject {
     curentImage = 0;
 
 
+    /**
+     * Loads an image for the object.
+     * @param {string} path - The path of the image to load.
+     */
     loadImage(path) {
         this.img = new Image();
         this.img.src = path;
     }
 
 
+    /**
+     * Draws the object's border.
+     * @param {CanvasRenderingContext2D} ctx - The rendering context of the canvas.
+     */
     drawFrame(ctx) {
         if (this instanceof Character || this instanceof Chicken || this instanceof Endboss || this instanceof SmallChicken) {
             ctx.beginPath();
@@ -25,11 +33,19 @@ class DrawableObject {
     }
 
 
+    /**
+     * Draws the object on the canvas.
+     * @param {CanvasRenderingContext2D} ctx - The rendering context of the canvas.
+     */
     draw(ctx) {
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
 
 
+    /**
+     * Loads multiple images into the image cache.
+     * @param {string[]} arr - An array of image paths to load.
+     */
     loadImages(arr) {
         arr.forEach((path) => {
             let img = new Image();

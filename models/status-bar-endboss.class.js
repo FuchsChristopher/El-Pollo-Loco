@@ -11,6 +11,10 @@ class StatusBarBoss extends DrawableObject {
 
     percentage = 100;
 
+
+    /**
+     * Creates a status bar for StatusBarBoss object.
+     */
     constructor() {
         super();
         this.loadImages(this.imagesStatusBarBoss);
@@ -22,12 +26,22 @@ class StatusBarBoss extends DrawableObject {
         this.otherDirection = true;
     }
 
+
+    /**
+     * Sets the percentage of the StatusBarBoss status and updates the image.
+     * @param {*} percentageBottle - The percentage of the StatusBarBoss status.
+     */
     setPercentage(percentage) {
         this.percentage = percentage;
         let path = this.imagesStatusBarBoss[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
 
+
+    /**
+     * Returns the index of the image based on the current percentage of the StatusBarBoss status.
+     * @returns {*} - The index of the image.
+     */
     resolveImageIndex() {
         if (this.percentage == 100) {
             return 5;

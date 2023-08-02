@@ -15,6 +15,10 @@ class SmallChicken extends MovableObjekt {
         'img/3_enemies_chicken/chicken_small/2_dead/dead.png'
     ];
 
+
+    /**
+     * Creates a instance of SmallChicken.
+     */
     constructor() {
         super().loadImage('img/3_enemies_chicken/chicken_small/1_walk/1_w.png');
         this.loadImages(this.image_Walking);
@@ -28,16 +32,25 @@ class SmallChicken extends MovableObjekt {
     }
 
 
+    /**
+     * the SmallChicken spant at random place.
+     */
     randomSpawnPoint() {
         this.x = 1600 + Math.random() * 500;
     }
 
 
+    /**
+     * the SmallChicken gets a random speed.
+     */
     randomSpeed() {
         this.speed = 2.00 + Math.random() * 0.25;
     }
 
 
+    /**
+     * specifies which animation to played.
+     */
     animate() {
         let animateIntervall = setInterval(() => {
             this.moveLeft();
@@ -56,6 +69,10 @@ class SmallChicken extends MovableObjekt {
     }
 
 
+    /**
+     * the SmallChicken spant at random place.
+     * the SmallChicken gets a random speed.
+     */
     chickenReturn() {
         if (this.x < -300) {
             this.randomSpawnPoint();
@@ -63,7 +80,9 @@ class SmallChicken extends MovableObjekt {
         }
     }
 
-
+    /**
+     * jumping is performed every three seconds.
+     */
     chickenJump() {
         setInterval(() => {
             if (!this.isAboveGround()) {
@@ -73,6 +92,9 @@ class SmallChicken extends MovableObjekt {
     }
 
 
+    /**
+     * specifies which animation to played.
+     */
     animateTwo() {
         setInterval(() => {
             this.chickenReturn();
@@ -80,6 +102,9 @@ class SmallChicken extends MovableObjekt {
     }
 
 
+    /**
+     * Makes the object jump.
+     */
     jump() {
         this.speedY = 20;
     }

@@ -3,6 +3,10 @@ class StatusBarImageBoss extends DrawableObject {
         'img/7_statusbars/3_icons/icon_health_endboss.png'
     ];
 
+
+    /**
+     * Creates a status bar for StatusBarImageBoss object.
+     */
     constructor() {
         super();
         this.loadImage(this.imagesStatusBarBoss);

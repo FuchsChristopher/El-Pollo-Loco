@@ -11,6 +11,10 @@ class StatusBarCoin extends DrawableObject {
 
     percentage = 0;
 
+
+    /**
+     * Creates a status bar for coins object.
+     */
     constructor() {
         super();
         this.loadImages(this.statusBarCash);
@@ -22,6 +26,10 @@ class StatusBarCoin extends DrawableObject {
     }
 
 
+    /**
+     * Sets the percentage of the coin status and updates the image.
+     * @param {*} percentageBottle - The percentage of the coin status.
+     */
     setPercentage(percentage) {
         this.percentage = percentage;
         let path = this.statusBarCash[this.resolveImageIndex()];
@@ -29,6 +37,10 @@ class StatusBarCoin extends DrawableObject {
     }
 
 
+    /**
+     * Returns the index of the image based on the current percentage of the coin status.
+     * @returns {*} - The index of the image.
+     */
     resolveImageIndex() {
         if (this.percentage == 100) {
             return 5;

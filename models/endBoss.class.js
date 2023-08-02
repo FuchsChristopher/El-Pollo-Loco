@@ -46,6 +46,10 @@ class Endboss extends MovableObjekt {
         'img/4_enemie_boss_chicken/5_dead/G26.png'
     ];
 
+
+     /**
+     * Creates a instance of EnBoss.
+     */
     constructor() {
         super().loadImage('img/4_enemie_boss_chicken/2_alert/G5.png');
         this.loadImages(this.image_Alert);
@@ -58,6 +62,9 @@ class Endboss extends MovableObjekt {
     }
 
 
+    /**
+     * starts the boss animation and the bossEvent.
+     */
     animate() {
         setInterval(() => {
             if (world.character.x >= 2000 && !this.triggertBossEvent) {
@@ -74,6 +81,9 @@ class Endboss extends MovableObjekt {
     }
 
 
+    /**
+     * this function indicates that the endBoss moves to the left.
+     */
     moveLeft() {
         setInterval(() => {
             this.x -= this.speed;
@@ -81,6 +91,9 @@ class Endboss extends MovableObjekt {
     }
 
 
+    /**
+     * Plays the animation for the endBoss.
+     */
     animate_2() {
         setInterval(() => {
             this.bossAnimation();
@@ -88,6 +101,9 @@ class Endboss extends MovableObjekt {
     }
 
 
+    /**
+     * Plays the animation for the endBoss.
+     */
     bossAnimation() {
         if (this.isHurt()) {
             this.bossHurt();
@@ -105,6 +121,9 @@ class Endboss extends MovableObjekt {
     }
 
 
+    /**
+     * this function ensures that the game is end.
+     */
     endGame() {
         for (let i = 1; i < 9999; i++) window.clearInterval(i);
         showEndScreen();
@@ -114,11 +133,17 @@ class Endboss extends MovableObjekt {
     }
 
 
+    /**
+     * show the startScreen.
+     */
     restartGame() {
         showStartScreen();
     }
 
 
+    /**
+     * plays the hurting Animation.2
+     */
     bossHurt() {
         this.playAnimation(this.image_Hurt);
     }

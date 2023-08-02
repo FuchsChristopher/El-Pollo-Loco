@@ -70,6 +70,9 @@ class Character extends MovableObjekt {
     jumpSound = new Audio('audio/Jump_Sound.mp3');
 
 
+    /**
+     * Creates a instance of Character.
+     */
     constructor() {
         super().loadImage('img/2_character_pepe/2_walk/W-21.png');
         this.loadImages(this.image_Walking);
@@ -83,7 +86,9 @@ class Character extends MovableObjekt {
         this.animate();
     }
 
-
+    /**
+     * Handle a many movement and animation of chraracter.
+     */
     animate() {
         setInterval(() => {
            this.characterMovement();
@@ -99,6 +104,9 @@ class Character extends MovableObjekt {
     }
 
 
+    /**
+     * handle two idleAnimation for short time and long time.
+     */
     playIdleAnimation() {
         if (!this.world.keyboard.RIGHT && !this.world.keyboard.LEFT && !this.isAboveGround() && !this.isHurt() && !this.isDead()) {
             this.playAnimation(this.images_Idle_Short);
@@ -111,6 +119,9 @@ class Character extends MovableObjekt {
     }
 
 
+    /**
+     * specifies which animation to played.
+     */
     characterAnimation() {
         if (this.isDead()) {
             this.playAnimation(this.image_Dead);
@@ -122,7 +133,10 @@ class Character extends MovableObjekt {
         }
     }
 
-
+    
+    /**
+     * specifies which animation and sound to played.
+     */
     characterMovement() {
         this.walking_sound.pause();
         if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
@@ -141,6 +155,9 @@ class Character extends MovableObjekt {
     }
 
 
+    /**
+     * played the character animation walking.
+     */
     moveLeftAndRight() {
         if (this.world.keyboard.RIGHT && !this.isAboveGround() || this.world.keyboard.LEFT && !this.isAboveGround()) {
             this.playAnimation(this.image_Walking);
@@ -148,6 +165,9 @@ class Character extends MovableObjekt {
     }
 
 
+     /**
+     * played the character animation jumping.
+     */
     jumpAnimation() {
         setInterval(() => {
             if (this.isAboveGround())
@@ -156,6 +176,9 @@ class Character extends MovableObjekt {
     }
 
 
+    /**
+     * this function ensures that the game is reset. 
+     */
     gameRestart() {
         setTimeout(() => {
             this.endGame();
@@ -166,6 +189,9 @@ class Character extends MovableObjekt {
     }
 
 
+     /**
+     * this function ensures that the game is end.
+     */
     endGame() {
         for (let i = 1; i < 9999; i++) window.clearInterval(i);
         showLoseScreen();
@@ -174,7 +200,9 @@ class Character extends MovableObjekt {
         }, 3000)
     }
 
-
+    /**
+     * show the startScreen.
+     */
     restartGame() {
         showStartScreen();
     }

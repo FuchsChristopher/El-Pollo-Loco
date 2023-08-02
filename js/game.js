@@ -25,7 +25,7 @@ function ini() {
 function StartCanvas() {
     let StartCanvas = document.getElementById('canvas');
     StartCanvas.innerHTML = '';
-    StartCanvas.classList.remove('d-none'); 
+    StartCanvas.classList.remove('d-none');
 }
 
 
@@ -39,6 +39,12 @@ function hiddenEndScreen() {
 }
 
 
+/**
+ * In the top pane, a specific keyboard button is assigned the value false,
+ * if the button is not pressed.(keyup)
+ * While in the lower part the value is true,
+ * when the keyboard button is pressed.(keydown)
+ */
 function keyboradsPress(keyboard) {
     window.addEventListener("keyup", (e) => {
         if (e.keyCode == 68) {
@@ -84,6 +90,12 @@ function keyboradsPress(keyboard) {
     });
 }
 
+
+/**
+ * When the mobile button is pressed, 
+ * the value true is passed and the event is started, 
+ * while not pressing it ends the event.
+ */
 function buttonsPress(keyboard) {
     document.getElementById('goLeft').addEventListener('touchstart', (e) => {
         e.preventDefault();
@@ -127,6 +139,9 @@ function buttonsPress(keyboard) {
 }
 
 
+/**
+ * In this function, the css class 'd-none' is assigned 
+ */
 function showScreen(element, templateFunction) {
     const screen = document.getElementById('canvas');
     screen.
@@ -143,11 +158,17 @@ function showScreen(element, templateFunction) {
 }
 
 
+/**
+ * In this function, the startScreen is created.
+ */
 function showStartScreen() {
     showScreen('canvas', showStartScreenTemplate);
 }
 
 
+/**
+ * In this function, the startScreenTemplate is created.
+ */
 function showStartScreenTemplate() {
     const startScreen = document.getElementById('startAndEndscreen');
     startScreen.innerHTML = `
@@ -163,11 +184,17 @@ function showStartScreenTemplate() {
 }
 
 
+/**
+ * In this function, the howToPlay screen is created.
+ */
 function howToPlay() {
     showScreen('canvas', howToPlayTemplate);
 }
 
 
+/**
+ * In this function, the howToPlayTemplate screen is created.
+ */
 function howToPlayTemplate() {
     const startHowToPlayScreen = document.getElementById('startAndEndscreen');
     startHowToPlayScreen.
@@ -185,36 +212,36 @@ function howToPlayTemplate() {
 }
 
 
+/**
+ * With this function you close the howToPlayTemplate
+ */
 function howToPlayClose() {
     showScreen('canvas', showStartScreen);
 }
 
 
+/**
+ * In this function, the EndScreen is created.
+ */
 function showEndScreen() {
-    showScreen('canvas', showEndScreenTemplate);
+    showScreen('canvas', () => setScreenTemplate('endImg', 'game over!'));
 }
 
 
-function showEndScreenTemplate() {
-    const startEndScreen = document.getElementById('startAndEndscreen');
-    startEndScreen.
-        innerHTML = `
-            <img class="endImg" src="img/9_intro_outro_screens/game_over/game over!.png">
-        `;
-}
-
-
+/**
+ * In this function, the LoseScreen is created.
+ */
 function showLoseScreen() {
-    showScreen('canvas', showLoseScreenTemplate);
+    showScreen('canvas', () => setScreenTemplate('endImg', 'oh no you lost!'));
 }
 
 
-function showLoseScreenTemplate() {
-    const startLoseScreen = document.getElementById('startAndEndscreen');
-    startLoseScreen.
-        innerHTML = `
-            <img class="endImg" src="img/9_intro_outro_screens/game_over/oh no you lost!.png">
-        `;
+/**
+ * In this function, the EndScreen and LoseScreen are created using parameters.
+ */
+function setScreenTemplate(className, imageSrc) {
+    const startEndScreen = document.getElementById('startAndEndscreen');
+    startEndScreen.innerHTML = `<img class="${className}" src="img/9_intro_outro_screens/game_over/${imageSrc}.png">`;
 }
 
 
@@ -269,23 +296,35 @@ function checkOrientation() {
 }
 
 
+/**
+ * This function makes the buttons visible
+ */
 function mobileButtonsSee() {
     document.getElementById('divMobileButtouns').classList.remove('d-none');
-    document.getElementById('divMobileButtouns').classList.remove('divMobileButtouns2');
 }
 
 
+/**
+ * This function makes the buttons invisible
+ */
 function mobileButtonsHidden() {
     document.getElementById('divMobileButtouns').classList.add('d-none');
 }
 
 
+/**
+ * In this function the potrait mode is created.
+ */
 function canvasPortraitScape() {
     document.getElementById('canvas').style.width = '100%';
     document.getElementById('canvas').style.height = 'calc(100% - 59px)';
     document.getElementById('canvas').style.borderRadius = '25px';
 }
 
+
+/**
+ * In this function the land mode is created.
+ */
 function canvasLandScape() {
     document.getElementById('canvas').style.width = '100vw';
     document.getElementById('canvas').style.height = '100vh';

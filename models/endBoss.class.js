@@ -127,6 +127,7 @@ class Endboss extends MovableObjekt {
     endGame() {
         for (let i = 1; i < 9999; i++) window.clearInterval(i);
         showEndScreen();
+        mobileButtonsHidden();
         setTimeout(() => {
             this.restartGame();
         }, 3000)
@@ -138,6 +139,7 @@ class Endboss extends MovableObjekt {
      */
     restartGame() {
         showStartScreen();
+        test = false;
     }
 
 
@@ -146,6 +148,11 @@ class Endboss extends MovableObjekt {
      */
     bossHurt() {
         this.playAnimation(this.image_Hurt);
+    }
+
+
+    mobileButtonsHidden() {
+        document.getElementById('divMobileButtouns').classList.add('d-none');
     }
 
 }

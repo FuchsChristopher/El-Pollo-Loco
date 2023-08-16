@@ -91,7 +91,7 @@ class Character extends MovableObjekt {
      */
     animate() {
         setInterval(() => {
-           this.characterMovement();
+            this.characterMovement();
         }, 1000 / 60);
 
         setInterval(() => {
@@ -133,7 +133,7 @@ class Character extends MovableObjekt {
         }
     }
 
-    
+
     /**
      * specifies which animation and sound to played.
      */
@@ -165,9 +165,9 @@ class Character extends MovableObjekt {
     }
 
 
-     /**
-     * played the character animation jumping.
-     */
+    /**
+    * played the character animation jumping.
+    */
     jumpAnimation() {
         setInterval(() => {
             if (this.isAboveGround())
@@ -189,14 +189,15 @@ class Character extends MovableObjekt {
     }
 
 
-     /**
-     * this function ensures that the game is end.
-     */
+    /**
+    * this function ensures that the game is end.
+    */
     endGame() {
         for (let i = 1; i < 9999; i++) window.clearInterval(i);
         showLoseScreen();
+        mobileButtonsHidden();
         setTimeout(() => {
-            this.restartGame();  
+            this.restartGame();
         }, 3000)
     }
 
@@ -204,6 +205,13 @@ class Character extends MovableObjekt {
      * show the startScreen.
      */
     restartGame() {
+        test = false;
         showStartScreen();
+
+    }
+
+
+    mobileButtonsHidden() {
+        document.getElementById('divMobileButtouns').classList.add('d-none');
     }
 }

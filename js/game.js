@@ -3,13 +3,15 @@ let world;
 let keyboard = new Keyboard();
 let toggledMusic = false;
 let game_background_sound = new Audio('audio/Background_Sound.mp3');
-
+let test = false;
 
 /**
  * The function starts the game by initializing the canvas, creating a world, and
  * animating all small and normal chickens. 
  */
 function ini() {
+    test = true;
+    handleOrientationChange();
     canvas = document.getElementById('canvas');
     iniLevel();
     world = new World(canvas, keyboard);
@@ -279,21 +281,28 @@ function toggleMusicOff(container) {
 }
 
 
-window.addEventListener("orientationchange", checkOrientation);
-
-
 /**
- * This function check the orientation on mobile phones or tablets
+ * This function check the orientation on the devices.
  */
-function checkOrientation() {
-    if (window.matchMedia("(orientation: landscape)").matches) {
+function handleOrientationChange() {
+    if (window.orientation === 0 && test === true) {
         canvasPortraitScape();
         mobileButtonsHidden();
-    } else {
+    } else if (window.orientation === 90 && test === true) {
         canvasLandScape();
         mobileButtonsSee();
+    } else {
+        canvasPortraitScape();
+        mobileButtonsHidden();
     }
 }
+
+/**
+ * Run the initialization and add the 'resize' event.
+ */
+window.addEventListener('resize', handleOrientationChange);
+
+
 
 
 /**

@@ -261,6 +261,20 @@ function toggleMusic() {
 
 
 /**
+ * This function check the orientation on the devices.
+ */
+function istHochformat() {
+    return window.matchMedia("(orientation: portrait)").matches
+
+}
+
+function istQuerformat() {
+    return window.matchMedia("(orientation: landscape)").matches
+}
+
+
+
+/**
  *  In this function start the background music.
  */
 function toggleMusicOn(container) {

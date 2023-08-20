@@ -11,7 +11,7 @@ let test = false;
  */
 function ini() {
     test = true;
-    handleOrientationChange();
+    checkRotation();
     canvas = document.getElementById('canvas');
     iniLevel();
     world = new World(canvas, keyboard);
@@ -261,20 +261,6 @@ function toggleMusic() {
 
 
 /**
- * This function check the orientation on the devices.
- */
-function istHochformat() {
-    return window.matchMedia("(orientation: portrait)").matches
-
-}
-
-function istQuerformat() {
-    return window.matchMedia("(orientation: landscape)").matches
-}
-
-
-
-/**
  *  In this function start the background music.
  */
 function toggleMusicOn(container) {
@@ -298,11 +284,8 @@ function toggleMusicOff(container) {
 /**
  * This function check the orientation on the devices.
  */
-function handleOrientationChange() {
-    if (window.orientation === 0 && test === true) {
-        canvasPortraitScape();
-        mobileButtonsHidden();
-    } else if (window.orientation === 90 && test === true) {
+function checkRotation() {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && test === true) {
         canvasLandScape();
         mobileButtonsSee();
     } else {
@@ -311,12 +294,8 @@ function handleOrientationChange() {
     }
 }
 
-/**
- * Run the initialization and add the 'resize' event.
- */
-window.addEventListener('resize', handleOrientationChange);
-
-
+// Check rotation on window resize
+window.addEventListener("resize", checkRotation);
 
 
 /**

@@ -294,7 +294,10 @@ function checkRotation() {
     }
 }
 
-// Check rotation on window resize
+/**
+ * Check rotation on window resize
+ */
+ 
 window.addEventListener("resize", checkRotation);
 
 
